@@ -1,6 +1,7 @@
 # PyCharm and python folders
 .idea/
 ti/__pycache__/
+tests/__pycache__/
 
 # Build and eggs folders
 build/
