@@ -1,13 +1,23 @@
 # subclass_b.pyx
 
-from superclass import Superclass
+cimport superclass
+from superclass cimport Superclass, Function
 
-class SubclassB(Superclass):
-    def __init__(self, a, b):
+
+cdef class SubclassB(Superclass):
+
+    def __init__(self, a=0, b=0):
         super(SubclassB, self).__init__(a=a, b=b)
+        self.f = FunctionB()
 
-    def do_that(self, c, d=None):
+    cpdef int do_that(self, int c, int d) except? -1:
         self.c = c
         self.d = d
-        print(self.a + self.b + self.c + self.d)
-        return(self.a + self.b + self.c + self.d)
+        return(self.f.evaluate(self.a, self.b, self.c, self.d))
+
+
+cdef class FunctionB(Function):
+
+    cpdef int evaluate(self, int a, int b, int c, int d) except *:
+        # print(a + b + c + d)
+        return(a + b + c + d)
