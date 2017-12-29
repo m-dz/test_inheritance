@@ -10,11 +10,6 @@ cdef class SubclassB(Superclass):
         super(SubclassB, self).__init__(a=a, b=b)
         self.f = FunctionB()
 
-    cpdef int do_that(self, int c, int d) except? -1:
-        self.c = c
-        self.d = d
-        return(self.f.evaluate(self.a, self.b, self.c, self.d))
-
 
 cdef class FunctionB(Function):
 
