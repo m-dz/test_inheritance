@@ -1,7 +1,12 @@
 # setup.py
 
-# To install:
+# To build:
 # python setup.py build_ext (or build?)
+#
+# To test:
+# python setup.py test (or pytest)
+#
+# To install:
 # python setup.py install
 
 try:
