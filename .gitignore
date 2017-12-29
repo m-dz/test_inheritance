@@ -5,6 +5,7 @@ ti/__pycache__/
 # Build and eggs folders
 build/
 .eggs/
+.cache/
 ti.egg-info/
 
 # Compiled (?) files
