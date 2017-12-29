@@ -1,4 +1,4 @@
-# test.pyx
+# ti.pyx
 
 cdef class Superclass:
 
@@ -7,13 +7,15 @@ cdef class Superclass:
     cdef int c
     cdef int d
 
+    cdef Function f
+
     def __init__(self, a, b, c=0, d=0):
         self.a = a
         self.b = b
         self.c = c
         self.d = d
 
-    cpdef int do_that(self, int c, int d, Function f) except? -1:
+    cpdef int do_that(self, int c, int d) except? -1:
         return 0
 
 
@@ -27,14 +29,14 @@ cdef class Function:
 cdef class FunctionA(Function):
 
     cpdef int evaluate(self, int a, int b, int c, int d) except *:
-        print(a + b + c)
+        # print(a + b + c)
         return(a + b + c)
 
 
 cdef class FunctionB(Function):
 
     cpdef int evaluate(self, int a, int b, int c, int d) except *:
-        print(a + b + c + d)
+        # print(a + b + c + d)
         return(a + b + c + d)
 
 
@@ -46,12 +48,12 @@ cdef class SubclassA(Superclass):
 
     def __init__(self, a=0, b=0):
         super(SubclassA, self).__init__(a=a, b=b)
+        self.f = FunctionA()
 
-    # cpdef int do_that(self, int c, int d=0, Function f=FunctionA()) except? -1:
-    cpdef int do_that(self, int c, int d, Function f) except? -1:
+    cpdef int do_that(self, int c, int d) except? -1:
         self.c = c
         self.d = 0
-        return(f.evaluate(self.a, self.b, self.c, self.d))
+        return(self.f.evaluate(self.a, self.b, self.c, self.d))
 
 
 # subclass_B.pyx
@@ -62,8 +64,9 @@ cdef class SubclassB(Superclass):
 
     def __init__(self, a=0, b=0):
         super(SubclassB, self).__init__(a=a, b=b)
+        self.f = FunctionB()
 
-    cpdef int do_that(self, int c, int d, Function f) except? -1:
+    cpdef int do_that(self, int c, int d) except? -1:
         self.c = c
         self.d = d
-        return(f.evaluate(self.a, self.b, self.c, self.d))
+        return(self.f.evaluate(self.a, self.b, self.c, self.d))

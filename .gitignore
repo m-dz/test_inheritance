@@ -1,5 +1,5 @@
 .idea/
 build/
-test/__pycache__/
+ti/__pycache__/
 **/*.pyd
 **/*.c

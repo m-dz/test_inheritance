@@ -16,19 +16,21 @@ from Cython.Build import cythonize
 
 # From https://stackoverflow.com/a/21826294/4272484
 # ext_modules=[
-#     Extension("test.SubclassA", ["test/subclass_a.pyx"]),
-#     Extension("test.SubclassB", ["test/subclass_b.pyx"])
-#     Extension("test", ["test/subclass_b.pyx", "test/subclass_a.pyx"])
-#     Extension("test", ["test/test.pyx"])
+#     Extension("ti.SubclassA", ["ti/subclass_a.pyx"]),
+#     Extension("ti.SubclassB", ["ti/subclass_b.pyx"])
+#     Extension("ti", ["ti/subclass_b.pyx", "ti/subclass_a.pyx"])
+#     Extension("ti", ["ti/ti.pyx"])
 # ]
 
 # setup(
-#     name = "test",
+#     name = "ti",
 #     cmdclass = {'build_ext': build_ext},
 #     ext_modules = ext_modules
 # )
 
 setup(
-    name = "test",
-    ext_modules = cythonize('test/test.pyx')
+    name = "ti",
+    ext_modules = cythonize('ti/ti.pyx'),
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest']
 )
