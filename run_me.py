@@ -1,5 +1,5 @@
 
-from testinheritance import SubclassA, SubclassB
+from test import SubclassA, SubclassB
 
 # import testinheritance
 
