@@ -1,1 +1,1 @@
-from .test import SubclassA, SubclassB
+from .test import SubclassA, SubclassB, FunctionA, FunctionB
