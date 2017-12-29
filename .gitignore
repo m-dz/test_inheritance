@@ -1,5 +1,12 @@
+# PyCharm and python folders
 .idea/
-build/
 ti/__pycache__/
+
+# Build and eggs folders
+build/
+.eggs/
+ti.egg-info/
+
+# Compiled (?) files
 **/*.pyd
 **/*.c
