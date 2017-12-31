@@ -17,4 +17,7 @@ def test_run_me():
 def test_passes():
     this_A = SubclassA(a=1, b=2)
     with pytest.raises(Exception) as e_info:
+        this_A.do_that(c=3, d=4)
+
+    with pytest.raises(Exception) as e_info:
         this_A.do_that(3, 4)
