@@ -9,10 +9,9 @@ cdef class Superclass:
         self.c = 0
 
 
-    cpdef int do_that(self, int c, int d=0) except? -1:
+    cpdef int do_that(self, int c) except? -1:
         self.c = c
-        self.d = d
-        return(self.f.evaluate(self.a, self.b, self.c, self.d))
+        return(self.f.evaluate(self.a, self.b, self.c))
 
 
 cdef class Function:

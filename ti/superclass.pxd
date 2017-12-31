@@ -12,7 +12,7 @@ cdef class Superclass:
 
     cdef Function f
 
-    cpdef int do_that(self, int c, int d=*) except? -1
+    cpdef int do_that(self, int c) except? -1
 
 
 cdef class Function:
