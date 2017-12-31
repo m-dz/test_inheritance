@@ -2,6 +2,9 @@
 
 # Default values thanks to https://stackoverflow.com/a/5090236/4272484
 
+# Overloading of the evaluate method as in
+#     http://docs.cython.org/en/latest/src/userguide/pyrex_differences.html#optional-arguments-in-cdef-cpdef-functions
+
 
 cdef class Superclass:
 
