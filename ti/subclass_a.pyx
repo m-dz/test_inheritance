@@ -13,6 +13,5 @@ cdef class SubclassA(Superclass):
 
 cdef class FunctionA(Function):
 
-    cpdef int evaluate(self, int a, int b, int c, int d) except *:
-        # print(a + b + c)
+    cpdef int evaluate(self, int a, int b, int c, int d=0) except *:
         return(a + b + c)
